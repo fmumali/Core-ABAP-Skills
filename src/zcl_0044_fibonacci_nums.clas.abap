@@ -39,6 +39,14 @@ CLASS zcl_0044_fibonacci_nums IMPLEMENTATION.
       ENDCASE.
 
 
+  DATA(counter) = 0.
+  LOOP AT numbers INTO DATA(number).
+
+     counter = counter + 1.
+
+  ENDLOOP.
+
+
 
     ENDDO.
 
