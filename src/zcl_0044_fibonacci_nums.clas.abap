@@ -19,6 +19,31 @@ CLASS zcl_0044_fibonacci_nums IMPLEMENTATION.
 
 
 
+    CONSTANTS max_count TYPE i VALUE 20.
+
+    DATA numbers TYPE TABLE OF i.
+
+
+    DO max_count TIMES.
+
+
+      CASE sy-index.
+        WHEN 1.
+          APPEND 0 TO numbers.
+        WHEN 2.
+          APPEND 1 TO numbers.
+
+        WHEN OTHERS.
+
+          APPEND (  sy-index - 1  +  sy-index - 2 ) TO numbers.
+      ENDCASE.
+
+
+
+    ENDDO.
+
+
+
 
 
   ENDMETHOD.
