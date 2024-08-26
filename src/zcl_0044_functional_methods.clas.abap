@@ -5,6 +5,15 @@ CLASS zcl_0044_functional_methods DEFINITION
 
   PUBLIC SECTION.
 
+      DATA carrier_id    TYPE /dmo/carrier_id.
+    DATA connection_id TYPE /DMO/Connection_id.
+
+    CLASS-DATA conn_counter TYPE i.
+
+    METHODS get_output
+      returning
+        value(r_output) type string_table.
+
     INTERFACES if_oo_adt_classrun .
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -54,4 +63,11 @@ CLASS zcl_0044_functional_methods IMPLEMENTATION.
     ENDIF.
 
   ENDMETHOD.
+
+  METHOD get_output.
+
+
+
+  ENDMETHOD.
+
 ENDCLASS.
