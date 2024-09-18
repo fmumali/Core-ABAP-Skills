@@ -23,6 +23,9 @@ CLASS zcl_0044_local_class IMPLEMENTATION.
 
 * First instance
 **********************************************************************
+
+    data(lv_result) =  1 / 8.
+
     connection = NEW #( ).
 
     connection->carrier_id    = 'LH'.
