@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for Z_C_Connection_0044'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'Z_C_Connection_0044'
+  }
+}
+define service ZUI_Connection_O4_0044 provider contracts odata_v4_ui {
+  expose Z_C_CONNECTION_0044 as Flight_Connection;
+}
