@@ -11,7 +11,6 @@ CLASS zcl_0044_eml DEFINITION
 ENDCLASS.
 
 
-
 CLASS zcl_0044_eml IMPLEMENTATION.
 
 
@@ -20,7 +19,7 @@ CLASS zcl_0044_eml IMPLEMENTATION.
 
     DATA agencies_upd TYPE TABLE FOR UPDATE /DMO/I_AgencyTP.
 
-    agencies_upd = VALUE #( ( agencyid = '070044' name = 'Some fancy new name' ) ).
+    agencies_upd = VALUE #( ( agencyid = '070044' name = `Some fancy new name` ) ).
 
     MODIFY ENTITIES OF /DMO/I_AgencyTP
     ENTITY /dmo/agency
@@ -28,7 +27,6 @@ CLASS zcl_0044_eml IMPLEMENTATION.
     WITH agencies_upd.
 
     out->write( `Method execution finished` ).
-
 
 
   ENDMETHOD.
