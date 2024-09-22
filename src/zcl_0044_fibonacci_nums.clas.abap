@@ -18,7 +18,6 @@ CLASS zcl_0044_fibonacci_nums IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
 
 
-
     CONSTANTS max_count TYPE i VALUE 20.
 
     DATA numbers TYPE TABLE OF i.
@@ -39,13 +38,17 @@ CLASS zcl_0044_fibonacci_nums IMPLEMENTATION.
       ENDCASE.
 
 
-  DATA(counter) = 0.
-  LOOP AT numbers INTO DATA(number).
+      DATA(counter) = 0.
+      LOOP AT numbers INTO DATA(number).
 
-     counter = counter + 1.
+        counter = counter + 1.
 
-  ENDLOOP.
+      ENDLOOP.
 
+      out->write(
+               data   = ''
+               name   = |The first { max_count } Fibonacci Numbers|
+                      ) .
 
 
     ENDDO.
