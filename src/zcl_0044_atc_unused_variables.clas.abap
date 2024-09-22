@@ -17,15 +17,13 @@ CLASS zcl_0044_atc_unused_variables IMPLEMENTATION.
 
   METHOD if_oo_adt_classrun~main.
 
-    DATA: carrier_list    TYPE TABLE OF /dmo/carrier,
-          connection_list TYPE TABLE OF /dmo/connection.
+    DATA:  connection_list TYPE TABLE OF /dmo/connection.
 
     SELECT FROM /dmo/connection
     FIELDS *
     INTO TABLE @DATA(connections).
 
-    connection_list = connections.
-    out->write( connection_list ).
+    out->write( connections ).
 
   ENDMETHOD.
 ENDCLASS.
