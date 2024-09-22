@@ -37,18 +37,18 @@ CLASS zcl_0044_method_calls_and_excp IMPLEMENTATION.
 
     data(lv_result) = 1 / 8.
 
-    TRY.
-        connection->set_attributes(
-          EXPORTING
-            i_carrier_id    = c_carrier_id
-            i_connection_id = c_connection_id
-        ).
-
-        APPEND connection TO connections.
-        out->write( `Method call successful` ).
-      CATCH cx_abap_invalid_value.
-        out->write( `Method call failed`     ).
-    ENDTRY.
+*    TRY.
+*        connection->set_attributes(
+*          EXPORTING
+*            i_carrier_id    = c_carrier_id
+*            i_connection_id = c_connection_id
+*        ).
+*
+*        APPEND connection TO connections.
+*        out->write( `Method call successful` ).
+*      CATCH cx_abap_invalid_value.
+*        out->write( `Method call failed`     ).
+*    ENDTRY.
 
 
   ENDMETHOD.
