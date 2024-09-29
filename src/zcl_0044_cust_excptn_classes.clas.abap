@@ -1,14 +1,31 @@
-class ZCL_0044_CUST_EXCPTN_CLASSES definition
-  public
-  final
-  create public .
+CLASS zcl_0044_cust_excptn_classes DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS ZCL_0044_CUST_EXCPTN_CLASSES IMPLEMENTATION.
+CLASS zcl_0044_cust_excptn_classes IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+
+    DATA connection TYPE REF TO lcl_connection.
+    DATA exception TYPE REF TO lcx_no_connection.
+
+    TRY.
+        connection = NEW #( i_airlineid = 'XX' i_connectionnumber = '0000' ).
+      CATCH lcx_no_connection INTO exception.
+        out->write( exception->get_text( ) ).
+    ENDTRY.
+
+  ENDMETHOD.
 ENDCLASS.
