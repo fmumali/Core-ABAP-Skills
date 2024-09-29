@@ -33,6 +33,7 @@ CLASS zcl_0044_method_calls_and_excp IMPLEMENTATION.
 * Call Method and Handle Exception
 **********************************************************************
     out->write(  |i_carrier_id    = '{ c_carrier_id }' | ).
+
     out->write(  |i_connection_id = '{ c_connection_id }'| ).
 
     data(lv_result) = 1 / 8.
