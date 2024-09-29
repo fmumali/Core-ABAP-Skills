@@ -38,6 +38,35 @@ CLASS zcl_0044_string_process IMPLEMENTATION.
     out->write( EXPORTING data = result_concat
                           name = 'RESULT_CONCAT' ).
 
+**********************************************************************
+
+    SELECT FROM /dmo/carrier
+         FIELDS carrier_id,
+                name,
+                upper( name )   AS name_upper,
+                lower( name )   AS name_lower,
+                initcap( name ) AS name_initcap
+
+         WHERE carrier_id   = 'SR'
+         INTO TABLE @DATA(result_transform).
+
+    out->write( EXPORTING data = result_transform
+                          name = 'RESULT_TRANSFORM' ).
+
+**********************************************************************
+    SELECT FROM /dmo/flight
+         FIELDS flight_date,
+                CAST( flight_date AS CHAR( 8 ) )   AS  flight_date_raw,
+                left( flight_date, 4 )             AS year,
+                right( flight_date, 2 )            AS day,
+                substring( flight_date, 5, 2 )     AS month
+
+         WHERE carrier_id = 'LH'
+          AND connection_id = '0400'
+          INTO TABLE @DATA(result_substring).
+
+    out->write( EXPORTING data = result_substring
+                          name = 'RESULT_SUBSTRING' ).
 
   ENDMETHOD.
 ENDCLASS.
