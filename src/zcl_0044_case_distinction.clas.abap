@@ -32,6 +32,25 @@ CLASS zcl_0044_case_distinction IMPLEMENTATION.
     out->write( EXPORTING data = result_simple
                           name = 'RESULT_SIMPLE' ).
 
+**********************************************************************
+
+    SELECT FROM /dmo/flight
+         FIELDS flight_date,
+                seats_max,
+                seats_occupied,
+                CASE
+                     WHEN seats_occupied < seats_max THEN 'Seats Available'
+                     WHEN seats_occupied = seats_max THEN 'Fully Booked'
+                     WHEN seats_occupied > seats_max THEN 'Overbooked!'
+                     ELSE                                 'This is impossible'
+                 END AS Booking_State
+
+           WHERE carrier_id    = 'LH'
+            AND  connection_id = '0400'
+            INTO TABLE @DATA(result_complex).
+
+    out->write( EXPORTING data = result_complex
+                          name = 'RESULT_COMPLEX' ).
 
 
   ENDMETHOD.
