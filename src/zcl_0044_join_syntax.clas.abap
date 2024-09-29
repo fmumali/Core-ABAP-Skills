@@ -36,7 +36,5 @@ CLASS zcl_0044_join_syntax IMPLEMENTATION.
             name = 'RESULT'
         ).
 
-
-
   ENDMETHOD.
 ENDCLASS.
