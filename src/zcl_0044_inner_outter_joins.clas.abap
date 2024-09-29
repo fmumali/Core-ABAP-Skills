@@ -19,7 +19,9 @@ CLASS zcl_0044_inner_outter_joins IMPLEMENTATION.
 
 
   SELECT FROM /dmo/Agency as a
-   INNER JOIN /dmo/customer as c
+*   INNER JOIN /dmo/customer as c
+   LEFT OUTER JOIN /dmo/customer as c
+*   INNER JOIN /dmo/customer as c
            ON a~city = c~city
 
       FIELDS agency_id,
