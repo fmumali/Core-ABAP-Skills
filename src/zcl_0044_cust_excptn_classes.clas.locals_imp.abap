@@ -15,7 +15,7 @@ CLASS lcx_no_connection DEFINITION INHERITING FROM cx_static_Check.
         connectionnumber TYPE /dmo/connection_id OPTIONAL.
     CONSTANTS:
       BEGIN OF lcx_no_connection,
-        msgid TYPE symsgid VALUE 'ZS4D401_EXCEPTIONS',
+        msgid TYPE symsgid VALUE 'ZS4D0044_EXCEPTIONS',
         msgno TYPE symsgno VALUE '001',
         attr1 TYPE scx_attrname VALUE 'AIRLINEID',
         attr2 TYPE scx_attrname VALUE 'CONNECTIONNUMBER',
