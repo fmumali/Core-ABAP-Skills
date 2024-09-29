@@ -32,5 +32,26 @@ CLASS zcl_0044_aggregate_functions IMPLEMENTATION.
         data = result_raw
         name = 'RESULT_RAW'
     ).
+
+*********************************************************************
+
+    SELECT FROM /dmo/connection
+         FIELDS MAX( distance ) AS max,
+                MIN( distance ) AS min,
+                SUM( distance ) AS sum,
+                AVG( distance ) AS average,
+                COUNT( * ) AS count,
+                COUNT( DISTINCT airport_from_id ) AS count_dist
+
+          WHERE carrier_id = 'LH'
+           INTO TABLE @DATA(result_aggregate).
+
+    out->write(
+      EXPORTING
+        data   = result_aggregate
+        name   = 'RESULT_AGGREGATED'
+    ).
+
+
   ENDMETHOD.
 ENDCLASS.
