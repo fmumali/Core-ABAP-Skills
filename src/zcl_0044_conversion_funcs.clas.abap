@@ -33,6 +33,29 @@ CLASS zcl_0044_conversion_funcs IMPLEMENTATION.
     out->write( EXPORTING data = result_date_time
                           name = 'RESULT_DATE_TIME' ).
 
+**********************************************************************
+
+    DATA(today) = cl_abap_context_info=>get_system_date(  ).
+
+    SELECT FROM /dmo/travel
+         FIELDS total_price,
+                currency_code,
+
+                currency_conversion( amount = total_price,
+                                     source_currency = currency_code,
+                                     target_currency = 'EUR',
+                                     exchange_rate_date = @today
+                                     ) AS total_price_EUR
+
+          WHERE customer_id = '000001' AND currency_code <> 'EUR'
+          INTO TABLE @DATA(result_currency).
+
+
+    out->write( EXPORTING data = result_currency
+                          name = 'RESULT_CURRENCY' ).
+
+
+**********************************************************************
 
   ENDMETHOD.
 ENDCLASS.
